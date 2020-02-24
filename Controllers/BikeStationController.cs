@@ -26,12 +26,14 @@ namespace BikeWatcher.Controllers
             client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
             var streamTask = client.GetStreamAsync("https://download.data.grandlyon.com/ws/rdata/jcd_jcdecaux.jcdvelov/all.json");
-
             var bikeStationJson = await JsonSerializer.DeserializeAsync<BikeStationJson>(await streamTask);
-
-            Debug.WriteLine(bikeStationJson);
             return bikeStationJson.values;
 
+        }
+
+        public IActionResult Map()
+        {
+            return View();
         }
     }
 }
