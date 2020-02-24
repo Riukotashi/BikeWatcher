@@ -3,8 +3,8 @@
 1. ~~Avoir une application ASP.Net Core de base nommée "BikeWatcher" qui tourne sur sa machine~~
 2. ~~Créer un repository public sur github, bitbucket ou gitlab pour héberger votre code.~~
 3. Publier votre code sur le repository à chaque avancée
-4. Supprimer du menu les pages de bases pour 2 liens de menu fonctionnels vers les pages vides suivantes : "Accueil", "Liste des stations", "Carte", "Mes favoris"
-5. Compléter la pages "Accueil" pour présenter votre travail, votre nom/prenom, cette liste d'objectifs (que vous rayerez au fur et à mesure) et l'URL où votre code source est visible
+4. ~~Supprimer du menu les pages de bases pour 2 liens de menu fonctionnels vers les pages vides suivantes : "Accueil", "Liste des stations", "Carte", "Mes favoris"~~
+5. ~~Compléter la pages "Accueil" pour présenter votre travail, votre nom/prenom, cette liste d'objectifs (que vous rayerez au fur et à mesure) et l'URL où votre code source est visible~~
 6. Se brancher sur l'API VeloV du grand Lyon pour récupérer les données en temps réel
 7. Afficher les données de l'API sous forme de tableau sur la page "Liste des stations" (les stations sont triées par ordre alphabétique)
 8. Afficher les données de l'API sous forme de carte sur la page "Carte" (chaque station sera représentée par une épingle à son emplacement)
