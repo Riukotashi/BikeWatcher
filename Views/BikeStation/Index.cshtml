@@ -19,11 +19,14 @@
         <tbody>
             @foreach (var bikeStation in bikeStations)
             {
-                <tr>
-                    <th scope="row">@bikeStation.name</th>
-                    <td>@bikeStation.available_bikes</td>
-                    <td>@bikeStation.address</td>
-                </tr>
+            <tr>
+                <th scope="row">@bikeStation.name</th>
+                <td>@bikeStation.available_bikes</td>
+                <td>@bikeStation.address</td>
+                <td>
+                    <a asp-action="AddToFav" asp-route-id="@bikeStation.gid">Ajouter aux favoris</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

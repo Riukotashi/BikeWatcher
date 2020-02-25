@@ -10,9 +10,9 @@
 8. ~~Afficher les données de l'API sous forme de carte sur la page "Carte" (chaque station sera représentée par une épingle à son emplacement)~~
 9. ~~Ajouter sur caque épingle de la carte la possibilité de cliquer pour afficher une infobulle qui indiquera le nombre de vélos et de places à la station en question~~
 10. Ajouter la possibilité de créer un compte utilisateur sur votre application
-11. Ajouter sur la page "Liste des stations" et/ou "Carte" la possibilité de rajouter des stations en favoris
-12. Compléter la page "Mes favoris" pour n'afficher sous forme de tableau que les stations marquées en favoris
-13. Stocker les stations favorites dans une base SQL
+11. ~~Ajouter sur la page "Liste des stations" et/ou "Carte" la possibilité de rajouter des stations en favoris~~
+12. ~~Compléter la page "Mes favoris" pour n'afficher sous forme de tableau que les stations marquées en favoris~~
+13. ~~Stocker les stations favorites dans une base SQL~~
 14. ~~Centrer automatiquement la carte par rapport à la position de l'utilisateur~~
 15. Trier automatiquement la liste des stations par rapport à la position de l'utilisateur
 16. Rendre votre application bilingue Français / Anglais

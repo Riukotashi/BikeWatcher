@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BikeWatcher.Models.FavBikeStations   >
+
+@{
+/*    var bikeStations = ViewBag.bikeStations;
+*/}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Bike Stations</h1>
+        <p>Voir mon <a href="https://docs.microsoft.com/aspnet/core">projet Github</a>.</p>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">IDFAV</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idFav)
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

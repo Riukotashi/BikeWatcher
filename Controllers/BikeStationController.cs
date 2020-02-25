@@ -7,12 +7,21 @@ using System.Diagnostics;
 using System.Text.Json;
 using BikeWatcher.Models;
 using System.Collections.Generic;
+using BikeWatcher.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BikeWatcher.Controllers
 {
     public class BikeStationController : Controller
     {
         private static readonly HttpClient client = new HttpClient();
+
+        private readonly FavBikeStationsContext _context;
+
+        public BikeStationController(FavBikeStationsContext context)
+        {
+            _context = context;
+        }
 
         static async Task<List<BikeStation>> GetBikeStationsAsync()
         {
@@ -37,6 +46,25 @@ namespace BikeWatcher.Controllers
             var bikeStations = await GetBikeStationsAsync();
             ViewBag.bikeStations = bikeStations;
             return View();
+        }
+
+        public async Task<IActionResult> AddToFav(int id)
+        {
+            if (id is int)
+            {
+                var favBikeStation = new FavBikeStations();
+                favBikeStation.idFav = id;
+                _context.FavBikeStations.Add(favBikeStation);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return NotFound();
+            
+        }
+
+        public async Task<IActionResult> FavoriteAsync()
+        {
+            return View(await _context.FavBikeStations.ToListAsync());
         }
     }
 }
