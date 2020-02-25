@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Map";
+    var bikeStations = ViewBag.bikeStations;
 }
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
 <style type="text/css">
@@ -30,6 +31,10 @@
             minZoom: 1,
             maxZoom: 20
         }).addTo(macarte);
+        for (bikeStation in bikeStations) {
+                var marker = L.marker([bikeStations[bikeStation].lat, bikeStations[bikeStation].lon]).addTo(macarte);
+                marker.bindPopup("<p> Nombre de vélos : "+ bikeStations[bikeStation].available_bikes + "</p> <p> Adresses : " + bikeStations[bikeStation].address + "</p>");
+        }
     }
     // On initialise la latitude et la longitude de Paris (centre de la carte)
     var lat = 45.75;
@@ -52,13 +57,30 @@
     function error(err) {
         initMap()
     }
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error, options)
-        Location.reload()
-    }
-    var macarte = null;
+         var bikeStations = [
+                
+            @foreach (var bikeStation in bikeStations)
+            {
+                <text>
+                    {
+                        "address": "@bikeStation.address",
+                        "lat": "@bikeStation.lat",
+                        "lon": "@bikeStation.lng",
+                        "available_bikes": "@bikeStation.available_bikes"
+                    },
+
+                </text>
+
+                
+        }];
+    
     window.onload = function () {
         // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
-        initMap();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error, options)
+            Location.reload()
+        }
+        
+
     };
 </script>

@@ -7,8 +7,8 @@
 5. ~~Compléter la pages "Accueil" pour présenter votre travail, votre nom/prenom, cette liste d'objectifs (que vous rayerez au fur et à mesure) et l'URL où votre code source est visible~~
 6. ~~Se brancher sur l'API VeloV du grand Lyon pour récupérer les données en temps réel~~
 7. ~~Afficher les données de l'API sous forme de tableau sur la page "Liste des stations" (les stations sont triées par ordre alphabétique)~~
-8. Afficher les données de l'API sous forme de carte sur la page "Carte" (chaque station sera représentée par une épingle à son emplacement)
-9. Ajouter sur caque épingle de la carte la possibilité de cliquer pour afficher une infobulle qui indiquera le nombre de vélos et de places à la station en question
+8. ~~Afficher les données de l'API sous forme de carte sur la page "Carte" (chaque station sera représentée par une épingle à son emplacement)~~
+9. ~~Ajouter sur caque épingle de la carte la possibilité de cliquer pour afficher une infobulle qui indiquera le nombre de vélos et de places à la station en question~~
 10. Ajouter la possibilité de créer un compte utilisateur sur votre application
 11. Ajouter sur la page "Liste des stations" et/ou "Carte" la possibilité de rajouter des stations en favoris
 12. Compléter la page "Mes favoris" pour n'afficher sous forme de tableau que les stations marquées en favoris

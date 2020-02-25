@@ -13,13 +13,7 @@ namespace BikeWatcher.Controllers
     public class BikeStationController : Controller
     {
         private static readonly HttpClient client = new HttpClient();
-        // GET
-        public async Task<IActionResult> Index()
-        {
-            var bikeStations = await GetBikeStationsAsync();
-            ViewBag.bikeStations = bikeStations.OrderBy(x => x.name);
-            return View();
-        }
+
         static async Task<List<BikeStation>> GetBikeStationsAsync()
         {
             client.DefaultRequestHeaders.Accept.Clear();
@@ -31,8 +25,17 @@ namespace BikeWatcher.Controllers
 
         }
 
-        public IActionResult Map()
+        public async Task<IActionResult> Index()
         {
+            var bikeStations = await GetBikeStationsAsync();
+            ViewBag.bikeStations = bikeStations.OrderBy(x => x.name);
+            return View();
+        }
+
+        public async Task<IActionResult> MapAsync()
+        {
+            var bikeStations = await GetBikeStationsAsync();
+            ViewBag.bikeStations = bikeStations;
             return View();
         }
     }
