@@ -24,7 +24,7 @@ namespace BikeWatcher
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<FavBikeStationsContext>();
+                    var context = services.GetRequiredService<BikeWatcherContext>();
                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)

@@ -1,0 +1,23 @@
+﻿@model BikeWatcher.Models.AlertBike
+@{
+
+}
+
+<h1>Signaler un vélo défectueux</h1>
+
+<form asp-action="AlertBike">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="numberBike" class="control-label"></label>
+        <input asp-for="numberBike" class="form-control" />
+        <span asp-validation-for="numberBike" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="message" class="control-label"></label>
+        <input asp-for="message" class="form-control" />
+        <span asp-validation-for="message" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Envoyer" class="btn btn-primary" />
+    </div>
+</form>

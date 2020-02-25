@@ -16,9 +16,9 @@ namespace BikeWatcher.Controllers
     {
         private static readonly HttpClient client = new HttpClient();
 
-        private readonly FavBikeStationsContext _context;
+        private readonly BikeWatcherContext _context;
 
-        public BikeStationController(FavBikeStationsContext context)
+        public BikeStationController(BikeWatcherContext context)
         {
             _context = context;
         }
@@ -60,6 +60,33 @@ namespace BikeWatcher.Controllers
             }
             return NotFound();
             
+        }
+
+        public IActionResult AlertBike()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AlertBike([Bind("numberBike, message")] AlertBike alertBike)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(alertBike);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
+            }
+            return View(alertBike);
         }
 
         public async Task<IActionResult> FavoriteAsync()

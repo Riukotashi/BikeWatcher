@@ -7,7 +7,7 @@ namespace BikeWatcher.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(FavBikeStationsContext context)
+        public static void Initialize(BikeWatcherContext context)
         {
             context.Database.EnsureCreated();
 
@@ -17,15 +17,15 @@ namespace BikeWatcher.Data
                 return;   // DB has been seeded
             }
 
-            var favorises = new FavBikeStations[]
+            var favBikeStations = new FavBikeStations[]
             {
             new FavBikeStations{idFav=16005},
             new FavBikeStations{idFav=16045}
 
             };
-            foreach (FavBikeStations f in favorises)
+            foreach (FavBikeStations favBikeStation in favBikeStations)
             {
-                context.FavBikeStations.Add(f);
+                context.FavBikeStations.Add(favBikeStation);
             }
             context.SaveChanges();
 

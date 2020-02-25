@@ -18,6 +18,6 @@
 16. Rendre votre application bilingue Français / Anglais
 17. Rendre votre application utilisable à la fois pour la ville de Lyon et la ville de Bordeaux (par exemple un bouton permettra de passer de l'un à l'autre dans le menu)
 18. Déployer votre code sur un serveur accessible publiquement en consultation
-19. Permettre aux utilisateurs de signaler un vélo en panne
+19. ~~Permettre aux utilisateurs de signaler un vélo en panne~~
 20. Faire en sorte que votre site soit agréable à utiliser sur mobile (il ne doit pas comporter ascenseur horizontal)
 21. BONUS : toute fonctionnalité supplémentaire sera valorisée, pensez-juste à l'indiquer sur votre page d'accueil que je puisse la comptabiliser
