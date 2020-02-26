@@ -1,35 +1,39 @@
 ﻿@{
+    ViewData["Title"] = "Listes des stations";
     var bikeStations = ViewBag.bikeStations;
 }
 
 <div class="container">
     <div class="text-center">
         <h1 class="display-4">Bike Stations</h1>
-        <p>Voir mon <a href="https://docs.microsoft.com/aspnet/core">projet Github</a>.</p>
 
-        
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Vélos disponibles</th>
-                <th scope="col">Adresse</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var bikeStation in bikeStations)
-            {
-            <tr>
-                <th scope="row">@bikeStation.name</th>
-                <td>@bikeStation.available_bikes</td>
-                <td>@bikeStation.address</td>
-                <td>
-                    <a asp-action="AddToFav" asp-route-id="@bikeStation.gid">Ajouter aux favoris</a>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-        
+
+        <p>@Html.ActionLink("Lyon", "Index", new { city = "lyon" }) / @Html.ActionLink("Bordeaux", "Index", new { city = "Bordeaux" })</p>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Vélos disponibles</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var bikeStation in bikeStations)
+                {
+                    <tr>
+                        <th scope="row">@bikeStation.name</th>
+                        <td>@bikeStation.available_bikes</td>
+                        <td>@bikeStation.address</td>
+                        <td>
+                            <a asp-action="AddToFav" asp-route-id="@bikeStation.gid">Ajouter aux favoris</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
     </div>
 </div>

@@ -7,6 +7,34 @@ namespace BikeWatcher.Models
 {
     public class BikeStation
     {
+        public BikeStation()
+        {
+
+        }
+
+        public BikeStation(BikeStationBdx bikeStationBdx)
+        {
+            this.gid = bikeStationBdx.id.ToString();
+            this.lat = bikeStationBdx.latitude;
+            this.lng = bikeStationBdx.longitude;
+            this.address = "Aucune adresse de disponible";
+            this.name = bikeStationBdx.name;
+            this.available_bikes = bikeStationBdx.bike_count.ToString();
+            this.bike_stands = bikeStationBdx.slot_count.ToString();
+
+            if (bikeStationBdx.is_online)
+            {
+                this.status = "OPEN";
+            }
+            else
+            {
+                this.status = "CLOSE";
+
+            }
+
+
+        }
+
         public string number { get; set; }
         public string pole { get; set; }
         public string available_bikes { get; set; }

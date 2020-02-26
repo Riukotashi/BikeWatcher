@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<BikeWatcher.Models.FavBikeStations>
 
+@{
+    ViewData["Title"] = "Favorites";
+}
 
 <div class="container">
     <div class="text-center">
-        <h1 class="display-4">Bike Stations</h1>
-        <p>Voir mon <a href="https://docs.microsoft.com/aspnet/core">projet Github</a>.</p>
-
-
+        <h1 class="display-4">Mes Favoris</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -15,17 +15,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var favori in Model)
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @Html.DisplayFor(modelItem => favori.ID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.idFav)
-                        </td>
-                        <td>
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                            @Html.DisplayFor(modelItem => favori.idFav)
                         </td>
                     </tr>
                 }

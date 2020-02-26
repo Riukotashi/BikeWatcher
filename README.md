@@ -2,7 +2,7 @@
 
 1. ~~Avoir une application ASP.Net Core de base nommée "BikeWatcher" qui tourne sur sa machine~~
 2. ~~Créer un repository public sur github, bitbucket ou gitlab pour héberger votre code.~~
-3. Publier votre code sur le repository à chaque avancée
+3. ~~Publier votre code sur le repository à chaque avancée~~
 4. ~~Supprimer du menu les pages de bases pour 2 liens de menu fonctionnels vers les pages vides suivantes : "Accueil", "Liste des stations", "Carte", "Mes favoris"~~
 5. ~~Compléter la pages "Accueil" pour présenter votre travail, votre nom/prenom, cette liste d'objectifs (que vous rayerez au fur et à mesure) et l'URL où votre code source est visible~~
 6. ~~Se brancher sur l'API VeloV du grand Lyon pour récupérer les données en temps réel~~
@@ -16,8 +16,8 @@
 14. ~~Centrer automatiquement la carte par rapport à la position de l'utilisateur~~
 15. Trier automatiquement la liste des stations par rapport à la position de l'utilisateur
 16. Rendre votre application bilingue Français / Anglais
-17. Rendre votre application utilisable à la fois pour la ville de Lyon et la ville de Bordeaux (par exemple un bouton permettra de passer de l'un à l'autre dans le menu)
+17. ~~Rendre votre application utilisable à la fois pour la ville de Lyon et la ville de Bordeaux (par exemple un bouton permettra de passer de l'un à l'autre dans le menu)~~
 18. Déployer votre code sur un serveur accessible publiquement en consultation
 19. ~~Permettre aux utilisateurs de signaler un vélo en panne~~
-20. Faire en sorte que votre site soit agréable à utiliser sur mobile (il ne doit pas comporter ascenseur horizontal)
+20. ~~Faire en sorte que votre site soit agréable à utiliser sur mobile (il ne doit pas comporter ascenseur horizontal)~~
 21. BONUS : toute fonctionnalité supplémentaire sera valorisée, pensez-juste à l'indiquer sur votre page d'accueil que je puisse la comptabiliser

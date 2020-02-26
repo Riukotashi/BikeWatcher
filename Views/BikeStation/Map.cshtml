@@ -9,7 +9,9 @@
         height: 400px;
     }
 </style>
-<title>Carte</title>
+
+
+<p>@Html.ActionLink("Lyon", "Map", new { city = "lyon" }) / @Html.ActionLink("Bordeaux", "Map", new { city = "Bordeaux" })</p>
 
 
 <div id="map">
@@ -58,7 +60,7 @@
         initMap()
     }
          var bikeStations = [
-                
+
             @foreach (var bikeStation in bikeStations)
             {
                 <text>
@@ -71,16 +73,16 @@
 
                 </text>
 
-                
+
         }];
-    
+
     window.onload = function () {
         // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error, options)
             Location.reload()
         }
-        
+
 
     };
 </script>

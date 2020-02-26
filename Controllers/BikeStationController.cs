@@ -23,10 +23,23 @@ namespace BikeWatcher.Controllers
             _context = context;
         }
 
-        static async Task<List<BikeStation>> GetBikeStationsAsync()
+        static async Task<List<BikeStation>> GetBikeStationsAsync(string city)
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            if (city.ToLower() == "bordeaux")
+            {
+                var streamTaskBdx = client.GetStreamAsync("https://api.alexandredubois.com/vcub-backend/vcub.php");
+                var bikeStationsBdx = await JsonSerializer.DeserializeAsync<List<BikeStationBdx>>(await streamTaskBdx);
+                var bikeStations = new List<BikeStation>();
+                foreach (var bikeStationBdx in bikeStationsBdx)
+                {
+                    var bikeStation = new BikeStation(bikeStationBdx);
+                    bikeStations.Add(bikeStation);
+                }
+                return bikeStations;
+            }
 
             var streamTask = client.GetStreamAsync("https://download.data.grandlyon.com/ws/rdata/jcd_jcdecaux.jcdvelov/all.json");
             var bikeStationJson = await JsonSerializer.DeserializeAsync<BikeStationJson>(await streamTask);
@@ -34,31 +47,27 @@ namespace BikeWatcher.Controllers
 
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string city = "lyon")
         {
-            var bikeStations = await GetBikeStationsAsync();
+            var bikeStations = await GetBikeStationsAsync(city);
             ViewBag.bikeStations = bikeStations.OrderBy(x => x.name);
             return View();
         }
 
-        public async Task<IActionResult> MapAsync()
+        public async Task<IActionResult> MapAsync(string city = "lyon")
         {
-            var bikeStations = await GetBikeStationsAsync();
+            var bikeStations = await GetBikeStationsAsync(city);
             ViewBag.bikeStations = bikeStations;
             return View();
         }
 
         public async Task<IActionResult> AddToFav(int id)
         {
-            if (id is int)
-            {
-                var favBikeStation = new FavBikeStations();
-                favBikeStation.idFav = id;
-                _context.FavBikeStations.Add(favBikeStation);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return NotFound();
+            var favBikeStation = new FavBikeStations();
+            favBikeStation.idFav = id;
+            _context.FavBikeStations.Add(favBikeStation);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             
         }
 
